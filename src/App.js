@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import image from "./1.jpg";
+import {Routes, Route} from "react-dom";
+import { Home, Reviews } from './pages';
 
 function Header(props){
   return(
@@ -17,7 +19,7 @@ function Main(props){
   return(
     <main>
       <div id="head">
-      <p>The most {props.adjective} Movies Reviews Wepsite</p>
+      <p>The Most {props.adjective} Movies Reviews Wepsite</p>
       </div>
       <img src={image} alt="site logo "/>
       <ul style={{textAlign: "left"}}>
@@ -49,11 +51,18 @@ function App() {
   return (
     <div className="App">
       <Header name="MO"/>
-      <Main adjective = "amazing" movies = {moiveObject}/>
+      <Main adjective = "Amazing" movies = {moiveObject}/>
+
+      <div>
+        <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/Reviews" element={<Reviews />} />
+        </Routes>
+      </div>
       <Footer year = {new Date().getFullYear()} />
-      
     </div>
   );
+
 }
 
 export default App;
