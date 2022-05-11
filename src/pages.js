@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from "react-dom"
+import { Link } from "react-router-dom";
+
 
 export function Home(){
     return(
@@ -11,11 +12,7 @@ export function Home(){
         </div>
 
     )
-
-
-
 }
-
 export function Reviews(){
     return(
         <div>
@@ -26,7 +23,4 @@ export function Reviews(){
         </div>
 
     )
-
-
-
 }

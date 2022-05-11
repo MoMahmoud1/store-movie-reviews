@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import image from "./1.jpg";
-import {Routes, Route} from "react-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { Home, Reviews } from './pages';
 
 function Header(props){
@@ -47,18 +48,29 @@ const movies =[
 ];
 const moiveObject = movies.map((moive, i) =>({id: i, title: moive}));
 
+// function Links (){
+//   return(
+//     <div>
+//     <Routes>
+//         <Route path="/" element={<Home />}/>
+//         <Route path="/Reviews" element={<Reviews />} />
+//     </Routes>
+//   </div>
+
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
       <Header name="MO"/>
       <Main adjective = "Amazing" movies = {moiveObject}/>
-
       <div>
-        <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/Reviews" element={<Reviews />} />
-        </Routes>
-      </div>
+    <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/Reviews" element={<Reviews />} />
+    </Routes>
+  </div>
       <Footer year = {new Date().getFullYear()} />
     </div>
   );
