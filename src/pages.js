@@ -6,8 +6,10 @@ function Header(props){
     return(
       <header>
         <div id ="header">
-        <h1>{props.name} Movies Reviews</h1>
+        <h1>{props.name} Movies Reviews Website</h1>
         </div>
+        <br></br>
+        <br></br>
       </header>
     );
   }
