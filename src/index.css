@@ -24,3 +24,14 @@ code {
   color: aliceblue; 
   background: #5367ff;
 }
+#nav{
+  background-color: chartreuse;
+  width: 200px;
+  height: 50px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-left:-100px; 
+  margin-top:100px;
+
+}
