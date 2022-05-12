@@ -67,10 +67,10 @@ export function Home(){
 export function Reviews(){
     return(
         <div>
-            <nav>
+            <div id="nav1">
                 <Link to="/">Home</Link>
                 <h1>Reviews</h1>
-            </nav>
+            </div>
         </div>
 
     )
