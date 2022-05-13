@@ -69,16 +69,18 @@ export function Home(){
 
 function Form(){
   return(
-        <div>
+        <div id="uplode">
              <h3> add new movie rate</h3>
           <form method="get">
              
           <input type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input>
           
-          <label for={"name"}  id={"name1"}>Name</label>
-          <input type={"text"}  name={"name"} id={"name"} rows={"5"} required > </input>
+          <label for={"name"} >Name</label>
+          <input type={"text"} required></input>
 
 
+          <label for={"rate"} >Rate</label>
+          <input type={"text"} required></input>
 
 
 
