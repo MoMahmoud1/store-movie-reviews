@@ -62,3 +62,16 @@ code {
   padding-top: 10px; */
 
 }
+#uplode{
+  text-align: center;
+ 
+}
+#form1{
+  text-align: center;
+  background-color:aqua ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 2rem;
+  margin-left: 500px;
+  margin-right: 500px;
+}

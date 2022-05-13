@@ -70,29 +70,19 @@ export function Home(){
 function Form(){
   return(
         <div id="uplode">
-             <h3> add new movie rate</h3>
-          <form method="get">
-             
-          <input type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input>
-          
-          <label for={"name"} >Name</label>
-          <input type={"text"} required></input>
+            <h3> add new movie rate</h3>
+            <form method="get" id ="form1">
+              
+            <input type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input><br></br>
+            
+            <label for={"name"} >Name</label>
+            <input type={"text"} required></input><br></br>
 
 
-          <label for={"rate"} >Rate</label>
-          <input type={"text"} required></input>
-
-
-
-
-
-
-
-
-
-
-
-          </form>
+            <label for={"rate"} >Rate</label>
+            <input type={"text"} required></input><br></br>
+            <input type={"submit"} value={"sumbit"}></input>
+            </form>
 
 
 
@@ -106,8 +96,8 @@ export function Reviews(){
         <div>
             <div id="nav1">
                 <Link to="/">Home</Link>
-                <Form/>
             </div>
+            <Form/>
         </div>
 
     )
