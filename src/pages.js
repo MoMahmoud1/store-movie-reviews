@@ -66,12 +66,45 @@ export function Home(){
 
     );
 }
+
+function Form(){
+  return(
+        <div>
+             <h3> add new movie rate</h3>
+          <form method="get">
+             
+          <input type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input>
+          
+          <label for={"name"}  id={"name1"}>Name</label>
+          <input type={"text"}  name={"name"} id={"name"} rows={"5"} required > </input>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </form>
+
+
+
+        </div>
+  );
+
+}
+
 export function Reviews(){
     return(
         <div>
             <div id="nav1">
                 <Link to="/">Home</Link>
-                <h1>Reviews</h1>
+                <Form/>
             </div>
         </div>
 
