@@ -28,8 +28,6 @@ function App() {
          }}
         />
       } />
-                
-
         <Route path="/reviews" element={<Reviews />} />
         </Routes>
   

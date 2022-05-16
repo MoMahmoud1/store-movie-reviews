@@ -99,14 +99,12 @@ return (
         >
           Remove
         </button>
-      
-          <h2>Movie Name: {Title}</h2>
-          <p> Released: {Released}</p>
+          <h2 style={{color:"blue"}}>Movie Name: {Title}</h2>
           <p>
-            Actors :{Actors[0]} ,{Actors[1]} ,{Actors[2]}
-            and {Actors[3]}
+            Actors :{Actors[0]} ,{Actors[1]} ,{Actors[2]} and {Actors[3]}
           </p>
           <p>Rating : {Rating}</p>
+          <p> Released: {Released}</p>
           <img src={"./images/" + Poster} alt={Title}
           width={400}
           height={400}
@@ -131,7 +129,7 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
           Actors={movie.Actors}
           Poster={movie.Poster}
           Rating={movie.Rating}
-          Release={movie.Released}
+          Released={movie.Released}
           onRemove={onRemoveMovie}
         ></Movie>
             
@@ -139,7 +137,7 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
       </div> 
       <div>
      <Footer year = {new Date().getFullYear()} />
-     </div>
+     </div>''
       </>
 
     );
