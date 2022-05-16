@@ -15,25 +15,13 @@ function Header(props){
   }
   
   
-  function Main({onRemove = (f) => f}){
-    movies =[]
+  function Main(props){
     return(
       <main>
         <div id="head">
         <p>The Most {props.adjective} Movies Reviews Wepsite</p>
         </div>
-        <img src={image} alt="site logo "/>
-
-        <div id ="movies">
-
-
-
-
-
-        </div>
-        
-        
-      
+        <img src={image} alt="site logo "/>      
       </main>
     );
   }
@@ -47,12 +35,15 @@ function Header(props){
     );
   }
 
-export function Home(){
+export function Home1(){
     return(
         <div className="App">
        <Header name="MO"/>
        <div id="nav">
-            <Link to = "reviews"> Reviews</Link>
+            <Link to="/">Home</Link>
+        </div>
+        <div id="nav2">
+          <Link to = "reviews"> Reviews</Link>
         </div>
        <Main adjective = "Amazing" />
        
@@ -98,3 +89,6 @@ export function Reviews(){
 
     )
 }
+
+
+
