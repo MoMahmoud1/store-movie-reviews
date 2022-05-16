@@ -15,13 +15,22 @@ function Header(props){
   }
   
   
-  function Main(props){
+  function Main({onRemove = (f) => f}){
+    movies =[]
     return(
       <main>
         <div id="head">
         <p>The Most {props.adjective} Movies Reviews Wepsite</p>
         </div>
         <img src={image} alt="site logo "/>
+
+        <div id ="movies">
+
+
+
+
+
+        </div>
         
         
       
