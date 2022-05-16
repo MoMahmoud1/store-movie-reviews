@@ -22,12 +22,9 @@ function Header(props){
         <p>The Most {props.adjective} Movies Reviews Wepsite</p>
         </div>
         <img src={image} alt="site logo "/>
-        <ul style={{textAlign: "left"}}>
-          {props.movies.map((moive)=>(
-              <li key={moive.id}> {moive.title}</li>
-  
-          ))}
-        </ul>
+        
+        
+      
       </main>
     );
   }
@@ -40,16 +37,6 @@ function Header(props){
       </footer>
     );
   }
-  const movies =[
-    "moive1",
-    "movie2",
-    "movie3"
-  ];
-  const moiveObject = movies.map((moive, i) =>({id: i, title: moive}));
-  
-
-
-
 
 export function Home(){
     return(
@@ -58,7 +45,7 @@ export function Home(){
        <div id="nav">
             <Link to = "reviews"> Reviews</Link>
         </div>
-       <Main adjective = "Amazing" movies = {moiveObject}/>
+       <Main adjective = "Amazing" />
        
        <Footer year = {new Date().getFullYear()} />
      
