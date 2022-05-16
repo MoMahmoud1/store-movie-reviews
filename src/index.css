@@ -91,3 +91,9 @@ code {
   margin-top: 30px;
   margin-right: -5px;
 }
+.movies{
+text-align: center;
+}
+.display{
+  background-color: #5367ff;
+}
