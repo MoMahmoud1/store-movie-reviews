@@ -94,6 +94,6 @@ code {
 .movies{
 text-align: center;
 }
-.display{
-  background-color: #5367ff;
+.delete{
+  background-color:indianred;
 }

@@ -46,7 +46,6 @@ export function Home1(){
           <Link to = "reviews"> Reviews</Link>
         </div>
           <Main adjective = "Amazing" />
-          <Footer year = {new Date().getFullYear()} />
         </div>
 
     );
@@ -93,11 +92,14 @@ export default function Movie({
   onRemove = (f) => f,
 }) { 
 return (
-    <div className="display" >
-        <img src={"./images/" + Poster} alt={Title}
-          width={400}
-          height={400}
-        />
+    <div>
+       <button className="delete"
+          onClick={() => {  onRemove(Title);
+          }}
+        >
+          Remove
+        </button>
+      
           <h2>Movie Name: {Title}</h2>
           <p> Released: {Released}</p>
           <p>
@@ -105,24 +107,23 @@ return (
             and {Actors[3]}
           </p>
           <p>Rating : {Rating}</p>
-        <button
-          className="delete"
-          onClick={() => {
-            onRemove(Title);
-          }}
-        >
-          Remove
-        </button>
-  
+          <img src={"./images/" + Poster} alt={Title}
+          width={400}
+          height={400}
+        />
+        <p></p>
+       
     </div>
+    
   );
+  
 }
 export function Home2({ movies = [], onRemoveMovie = (f) => f }){
 
     return(
       <>
       <Home1/>
-      <div >
+      <div  className="display" >
         {movies.map((movie,key) =>(
           <Movie
           key={key}
@@ -136,6 +137,9 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
             
         ))}
       </div> 
+      <div>
+     <Footer year = {new Date().getFullYear()} />
+     </div>
       </>
 
     );
