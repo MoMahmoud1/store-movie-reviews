@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import {Reviews,Home1} from './pages';
+import {Reviews,Home2} from './pages';
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -17,7 +17,16 @@ function App() {
 
     <div>
       <Routes>
-        <Route path="/" element={<Home1 />} />
+        <Route path="/" element={<Home2 />} movies={movies}
+              onRemoveMovie={(title) => {
+                // console.log(title);
+                const updatedMovies = movies.filter(
+                  (movie) => movie.Title !== title
+                );
+                setMovies(updatedMovies);
+                //  console.log(movies);
+                 
+                 }}/>
         <Route path="/reviews" element={<Reviews />} />
         </Routes>
   

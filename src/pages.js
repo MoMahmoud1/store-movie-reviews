@@ -45,10 +45,8 @@ export function Home1(){
         <div id="nav2">
           <Link to = "reviews"> Reviews</Link>
         </div>
-       <Main adjective = "Amazing" />
-       
-       <Footer year = {new Date().getFullYear()} />
-     
+          <Main adjective = "Amazing" />
+          <Footer year = {new Date().getFullYear()} />
         </div>
 
     );
@@ -90,5 +88,87 @@ export function Reviews(){
     )
 }
 
+export default function Movie({
+  Title,
+  Poster,
+  Released,
+  Actors,
+  Rating,
+  onRemove = (f) => f,
+}) {
 
+
+  return (
+    <div >
+      <div >
+        <img
+          className="poster"
+          src={"./images/" + Poster}
+          alt={Title}
+          width={400}
+          height={400}
+        />
+      </div>
+      <div >
+        <div>
+          <h2>Movie Name: {Title}</h2>
+        </div>
+        <div>
+          <p> Released: {Released}</p>
+        </div>
+        <div>
+          <p>
+            Actors :{Actors[0]} ,{Actors[1]} ,{Actors[2]}
+            and {Actors[3]}
+          </p>
+        </div>
+        <div>
+          <p>Rating : {Rating}</p>
+        </div>
+      </div>
+      <div >
+        <button
+          className="delete"
+          onClick={() => {
+            onRemove(Title);
+          }}
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+  );
+}
+const initialFormData = Object.freeze({
+  Title: "",
+  Rating: "",
+  Released: "",
+  Actors: "",
+  Poster: "",
+});
+
+export function Home2({ movies = [], onRemoveMovie = (f) => f }){
+
+    return(
+      <>
+      <Home1/>
+      <div>
+        {movies.map((movie,key) =>(
+          <Movie
+          key={key}
+          Title={Movie.Title}
+          Actors={movie.Actors}
+          Poster={movie.Poster}
+          Rating={movie.Rating}
+          Release={movie.ReleaseD}
+          onRemove={onRemoveMovie}
+        ></Movie>
+
+        ))}
+
+      </div> 
+      </>
+
+    );
+}
 
