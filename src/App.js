@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import {Reviews,Home1,Home2} from './pages';
+import {Reviews,Home2} from './pages';
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 

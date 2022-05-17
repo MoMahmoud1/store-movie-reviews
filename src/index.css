@@ -42,8 +42,8 @@ code {
   right: 100px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 27px;
+  padding-left: 35px;
   margin-top: -30px;
   
 }
@@ -55,6 +55,7 @@ code {
   border-radius: 2rem;
   text-align: center;
   padding-top: 10px;
+  margin-left: 50px;
 
   /* top:100px;
   left:50%;
@@ -68,10 +69,10 @@ code {
  
 }
 #form1{
-  text-align: center;
   background-color:aqua ;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
+  padding-right: 100px;
   border-radius: 2rem;
   margin-left: 500px;
   margin-right: 500px;
@@ -96,4 +97,53 @@ text-align: center;
 }
 .delete{
   background-color:indianred;
+}
+.file{
+  padding-right: 600px;
+}
+.name{
+  padding-right: 600px;
+}
+.name1{
+
+width: 100px;
+padding-right: 300px;
+
+}
+.actor{
+  padding-right: 600px;
+}
+.actor1{
+  width: 100px;
+padding-right: 300px;
+}
+.rate{
+  width: 100px;
+  padding-right: 300px;
+}
+.rate1{
+  padding-right: 600px;
+}
+.released{
+  padding-right: 600px;
+}
+.released1{
+  width: 100px;
+  padding-right: 300px;
+}
+.logo{
+  margin-bottom: 100px;
+}
+.poster{
+  margin-bottom: 30px;
+}
+.movie{
+  border-style: solid;
+  border-radius: 4rem;
+  border-color: black;
+  background-color:aliceblue;
+  margin-right:600px;
+  margin-left: 600px;
+  margin-bottom: 30px;
+
 }

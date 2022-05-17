@@ -21,8 +21,9 @@ function Header(props){
         <div id="head">
         <p>The Most {props.adjective} Movies Reviews Wepsite</p>
         </div>
-        <img src={image} alt="site logo "/>      
+        <img  className="logo" src={image} alt="site logo "/>  
       </main>
+    
     );
   }
   
@@ -43,7 +44,7 @@ export function Home1(){
             <Link to="/">Home</Link>
         </div>
         <div id="nav2">
-          <Link to = "reviews"> Reviews</Link>
+          <Link to = "reviews"> Add Movie</Link>
         </div>
           <Main adjective = "Amazing" />
         </div>
@@ -54,17 +55,31 @@ export function Home1(){
 function Form(){
   return(
         <div id="uplode">
-            <h3> add new movie rate</h3>
+            <h3> Add New Movie </h3>
             <form method="get" id ="form1">
+            <div className="file">
+              <input  type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input><br></br>
+            </div>
+        <div className="input">    
+            <div className="name">
+              <label for={"name"} >Movie Title</label>
               
-            <input type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input><br></br>
-            
-            <label for={"name"} >Name</label>
-            <input type={"text"} required></input><br></br>
-
-
-            <label for={"rate"} >Rate</label>
-            <input type={"text"} required></input><br></br>
+              <input className="name1" type={"text"} required></input><br></br>
+             
+            </div>
+            <div className="actor">
+              <label for={"name"} >Actors Names</label>
+              <input className="actor1" type={"text"} required></input><br></br>
+            </div>
+            <div className="rate1">
+              <label for={"rate"} >Rate</label>
+              <input className="rate" type={"text"} required></input><br></br>
+            </div>
+            <div className="released">
+              <label for={"rate"} >Released</label>
+              <input className="released1" type={"text"} required></input><br></br>
+            </div>
+        </div>    
             <input type={"submit"} value={"sumbit"}></input>
             </form>
 
@@ -92,7 +107,7 @@ export default function Movie({
   onRemove = (f) => f,
 }) { 
 return (
-    <div>
+    <div className="movie">
        <button className="delete"
           onClick={() => {  onRemove(Title);
           }}
@@ -105,9 +120,9 @@ return (
           </p>
           <p>Rating : {Rating}</p>
           <p> Released: {Released}</p>
-          <img src={"./images/" + Poster} alt={Title}
-          width={400}
-          height={400}
+          <img className="poster" src={"./images/" + Poster} alt={Title}
+          width={600}
+          height={500}
         />
         <p></p>
        
@@ -137,7 +152,7 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
       </div> 
       <div>
      <Footer year = {new Date().getFullYear()} />
-     </div>''
+     </div>
       </>
 
     );
