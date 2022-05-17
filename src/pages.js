@@ -84,6 +84,7 @@ export function Home1(){
       "poster": poster.name,
       "rating": rating
     };
+  }
 
   return(
         <div id="uplode">
@@ -105,7 +106,14 @@ export function Home1(){
             </div>
             <div className="rate1">
               <label for={"rate"} >Rate</label>
-              <input className="rate" type={"text"} required></input><br></br>
+              <select className="rate" ref={formRating} required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              </select><br></br>
+
             </div>
             <div className="released">
               <label for={"rate"} >Released</label>
@@ -186,4 +194,4 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
       </>
 
     );
-}
+  }
