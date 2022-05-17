@@ -55,6 +55,28 @@ export function Home1(){
 
  export function Form(){
 
+  const addMovieDatabase = async (name, date, actors, poster, rating) => {
+    let info = {
+      "name": name,
+      "date": date,
+      "actors": actors,
+      "poster": poster.name,
+      "rating": rating
+    };
+  }
+  
+  var fs = require("fs");
+  
+  var data = fs.readFileSync("movies.json");
+  var myObject = JSON.parse(data);
+    
+  myObject.push(info);
+    
+  var newData2 = JSON.stringify(myObject);
+  fs.writeFile("data2.json", newData2, (err) => {
+    if (err) throw err;
+    console.log("New data added");}
+    
 
   const formName = useRef();
   const formDate = useRef();
@@ -76,20 +98,12 @@ export function Home1(){
     formPoster.current.value = "";
     formRating.current.value = "";
   };
-  const addMovieDatabase = async (name, date, actors, poster, rating) => {
-    let info = {
-      "name": name,
-      "date": date,
-      "actors": actors,
-      "poster": poster.name,
-      "rating": rating
-    };
-  }
+
 
   return(
         <div id="uplode">
             <h3> Add New Movie </h3>
-            <form method="get " id ="form1" onSubmit={submit} >
+            <form method="post" id ="form1" onSubmit={submit} >
             <div className="file">
               <input  type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} ref={formPoster} required></input><br></br>
             </div>
