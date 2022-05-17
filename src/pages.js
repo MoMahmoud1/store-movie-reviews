@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {useRef,useState } from 'react';
 import image from "./1.jpg";
 
 function Header(props){
@@ -52,24 +53,55 @@ export function Home1(){
     );
 }
 
-function Form(){
+ export function Form(){
+
+
+  const formName = useRef();
+  const formDate = useRef();
+  const formActors = useRef();
+  const formPoster = useRef();
+  const formRating = useRef();
+  const submit = e => {
+    e.preventDefault();
+    const name = formName.current.value;
+    const date = formDate.current.value;
+    const actors = formActors.current.value;
+    const poster = formPoster.current.files[0];
+    const rating = formRating.current.value;
+    
+    addMovieDatabase(name, date, actors.split(", "), poster, rating);
+    formName.current.value = "";
+    formDate.current.value = "";
+    formActors.current.value = "";
+    formPoster.current.value = "";
+    formRating.current.value = "";
+  };
+  const addMovieDatabase = async (name, date, actors, poster, rating) => {
+    let info = {
+      "name": name,
+      "date": date,
+      "actors": actors,
+      "poster": poster.name,
+      "rating": rating
+    };
+
   return(
         <div id="uplode">
             <h3> Add New Movie </h3>
-            <form method="get" id ="form1">
+            <form method="get " id ="form1" onSubmit={submit} >
             <div className="file">
-              <input  type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} required></input><br></br>
+              <input  type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} ref={formPoster} required></input><br></br>
             </div>
         <div className="input">    
             <div className="name">
               <label for={"name"} >Movie Title</label>
               
-              <input className="name1" type={"text"} required></input><br></br>
+              <input className="name1" type={"text"} ref={formName} required></input><br></br>
              
             </div>
             <div className="actor">
               <label for={"name"} >Actors Names</label>
-              <input className="actor1" type={"text"} required></input><br></br>
+              <input className="actor1" type={"text"} ref={formActors} required></input><br></br>
             </div>
             <div className="rate1">
               <label for={"rate"} >Rate</label>
@@ -77,18 +109,16 @@ function Form(){
             </div>
             <div className="released">
               <label for={"rate"} >Released</label>
-              <input className="released1" type={"text"} required></input><br></br>
+              <input className="released1" type={"date"} ref={formDate} required></input><br></br>
             </div>
         </div>    
             <input type={"submit"} value={"sumbit"}></input>
             </form>
-
-
-
         </div>
-  );
-
+  
+      );
 }
+
 
 export function Reviews(){
     return(
@@ -157,5 +187,3 @@ export function Home2({ movies = [], onRemoveMovie = (f) => f }){
 
     );
 }
-
-
