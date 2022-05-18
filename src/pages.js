@@ -95,6 +95,7 @@ export function Form({addmovies}) {
       <h3> Add New Movie </h3>
       <form method="post" id="form1" onSubmit={submit}>
         <div className="file">
+        <label> Image</label>
         <select ref={formPoster} >
           <option value='t.jpg'>Termenator</option>
           <option value='v.avif'>Venom</option>
@@ -112,7 +113,7 @@ export function Form({addmovies}) {
         </div>
         <div className="input">
           <div className="name">
-            <label htmlFor={'name'}>Movie Title</label>
+            <label htmlFor={'name'}>Title</label>
 
             <input
               className="name1"
@@ -123,7 +124,7 @@ export function Form({addmovies}) {
             <br></br>
           </div>
           <div className="actor">
-            <label  htmlFor={'actor'} >Actors Names</label>
+            <label  htmlFor={'actor'} >Actors</label>
             <input placeholder ="@1 @2 @3 @4"
               className="actor1"
               type={'text'}
@@ -132,8 +133,8 @@ export function Form({addmovies}) {
             ></input>
             <br></br>
           </div>
-          <div className="rate1">
-            <label  htmlFor={'rate'}>Rate</label>
+          <label className="rate1" htmlFor={'rate'}>Rate</label>
+          <div className="rate2">
             <select  ref={formRating} required >
               <option value="1">1</option>
               <option value="2">2</option>
