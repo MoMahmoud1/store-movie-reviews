@@ -55,29 +55,19 @@ export function Home1(){
 
 export function Form({addmovies}) {
   const [values, setValues] = useState(null);
-  // var fs = require('fs');
+
 
   const addMovieDatabase = async (name, date, actors, poster, rating) => {
     let info = {
       Title: name,
       Released: date,
       Actors: actors,
-      Poster: poster.name,
+      Poster: poster,
       Rating: rating,
     };
     setValues(info);
     addmovies(info);
   };
-
-  // var data = fs.readFileSync('movies.json');
-  // var myObject = JSON.parse(data);
-  // myObject.push(values);
-
-  // var newData2 = JSON.stringify(myObject);
-  // fs.writeFile('data2.json', newData2, (err) => {
-  //   if (err) throw err;
-  //   console.log('New data added');
-  // });
 
   const formName = useRef();
   const formDate = useRef();
@@ -89,7 +79,7 @@ export function Form({addmovies}) {
     const name = formName.current.value;
     const date = formDate.current.value;
     const actors = formActors.current.value;
-    const poster = formPoster.current.files[0];
+    const poster = formPoster.current.value;
     const rating = formRating.current.value;
 
     addMovieDatabase(name, date, actors, poster, rating);
@@ -105,13 +95,19 @@ export function Form({addmovies}) {
       <h3> Add New Movie </h3>
       <form method="post" id="form1" onSubmit={submit}>
         <div className="file">
-          <input
+        <select ref={formPoster} >
+          <option value='t.jpg'>Termenator</option>
+          <option value='v.avif'>Venom</option>
+          <option value='u.jpg'>Uncharted</option>
+          <option value='r.jpg'>Rocky</option>
+          </select><br/><br/>
+          {/* <input
             type={'file'}
             name={'file'}
             accept={'.jpg,.png,.jpeg'}
             ref={formPoster}
             required
-          ></input>
+          ></input> */}
           <br></br>
         </div>
         <div className="input">
@@ -138,7 +134,7 @@ export function Form({addmovies}) {
           </div>
           <div className="rate1">
             <label  htmlFor={'rate'}>Rate</label>
-            <select className="rate" ref={formRating} required >
+            <select  ref={formRating} required >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
