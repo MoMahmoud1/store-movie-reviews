@@ -92,7 +92,7 @@ export function Form({addmovies}) {
     const poster = formPoster.current.files[0];
     const rating = formRating.current.value;
 
-    addMovieDatabase(name, date, actors.split(","), poster, rating);
+    addMovieDatabase(name, date, actors, poster, rating);
     formName.current.value = '';
     formDate.current.value = '';
     formActors.current.value = '';
