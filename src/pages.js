@@ -53,102 +53,129 @@ export function Home1(){
     );
 }
 
- export function Form(){
+export function Form({addmovies}) {
+  const [values, setValues] = useState(null);
+  // var fs = require('fs');
 
   const addMovieDatabase = async (name, date, actors, poster, rating) => {
     let info = {
-      "name": name,
-      "date": date,
-      "actors": actors,
-      "poster": poster.name,
-      "rating": rating
+      Title: name,
+      Released: date,
+      Actors: actors,
+      Poster: poster.name,
+      Rating: rating,
     };
-  }
-  
-  var fs = require("fs");
-  
-  var data = fs.readFileSync("movies.json");
-  var myObject = JSON.parse(data);
-    
-  myObject.push(info);
-    
-  var newData2 = JSON.stringify(myObject);
-  fs.writeFile("data2.json", newData2, (err) => {
-    if (err) throw err;
-    console.log("New data added");}
-    
+    setValues(info);
+    addmovies(info);
+  };
+
+  // var data = fs.readFileSync('movies.json');
+  // var myObject = JSON.parse(data);
+  // myObject.push(values);
+
+  // var newData2 = JSON.stringify(myObject);
+  // fs.writeFile('data2.json', newData2, (err) => {
+  //   if (err) throw err;
+  //   console.log('New data added');
+  // });
 
   const formName = useRef();
   const formDate = useRef();
   const formActors = useRef();
   const formPoster = useRef();
   const formRating = useRef();
-  const submit = e => {
+  const submit = (e) => {
     e.preventDefault();
     const name = formName.current.value;
     const date = formDate.current.value;
     const actors = formActors.current.value;
     const poster = formPoster.current.files[0];
     const rating = formRating.current.value;
-    
-    addMovieDatabase(name, date, actors.split(", "), poster, rating);
-    formName.current.value = "";
-    formDate.current.value = "";
-    formActors.current.value = "";
-    formPoster.current.value = "";
-    formRating.current.value = "";
+
+    addMovieDatabase(name, date, actors.split(","), poster, rating);
+    formName.current.value = '';
+    formDate.current.value = '';
+    formActors.current.value = '';
+    formPoster.current.value = '';
+    formRating.current.value = '';
   };
 
+  return (
+    <div id="uplode">
+      <h3> Add New Movie </h3>
+      <form method="post" id="form1" onSubmit={submit}>
+        <div className="file">
+          <input
+            type={'file'}
+            name={'file'}
+            accept={'.jpg,.png,.jpeg'}
+            ref={formPoster}
+            required
+          ></input>
+          <br></br>
+        </div>
+        <div className="input">
+          <div className="name">
+            <label htmlFor={'name'}>Movie Title</label>
 
-  return(
-        <div id="uplode">
-            <h3> Add New Movie </h3>
-            <form method="post" id ="form1" onSubmit={submit} >
-            <div className="file">
-              <input  type={"file"} name={"file"} accept={".jpg,.png,.jpeg"} ref={formPoster} required></input><br></br>
-            </div>
-        <div className="input">    
-            <div className="name">
-              <label for={"name"} >Movie Title</label>
-              
-              <input className="name1" type={"text"} ref={formName} required></input><br></br>
-             
-            </div>
-            <div className="actor">
-              <label for={"name"} >Actors Names</label>
-              <input className="actor1" type={"text"} ref={formActors} required></input><br></br>
-            </div>
-            <div className="rate1">
-              <label for={"rate"} >Rate</label>
-              <select className="rate" ref={formRating} required>
+            <input
+              className="name1"
+              type={'text'}
+              ref={formName}
+              required
+            ></input>
+            <br></br>
+          </div>
+          <div className="actor">
+            <label  htmlFor={'actor'} >Actors Names</label>
+            <input placeholder ="@1 @2 @3 @4"
+              className="actor1"
+              type={'text'}
+              ref={formActors}
+              required
+            ></input>
+            <br></br>
+          </div>
+          <div className="rate1">
+            <label  htmlFor={'rate'}>Rate</label>
+            <select className="rate" ref={formRating} required >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-              </select><br></br>
-
-            </div>
-            <div className="released">
-              <label for={"rate"} >Released</label>
-              <input className="released1" type={"date"} ref={formDate} required></input><br></br>
-            </div>
-        </div>    
-            <input type={"submit"} value={"sumbit"}></input>
-            </form>
+            </select>
+            <br></br>
+          </div>
+          <div className="released">
+            <label  htmlFor={'rate'}>Released</label>
+            <input
+              className="released1"
+              type={'date'}
+              ref={formDate}
+              required
+            ></input>
+            <br></br>
+          </div>
         </div>
-  
-      );
+        <input type={'submit'} value={'sumbit'}></input>
+      </form>
+      <script>
+
+      </script>
+    </div>
+    
+  );
 }
 
 
-export function Reviews(){
+export function Reviews({addmovies}){
     return(
         <div>
             <div id="nav1">
                 <Link to="/">Home</Link>
             </div>
-            <Form/>
+            <Form addmovies={addmovies}/>
         </div>
 
     )
@@ -168,7 +195,9 @@ return (
         </button>
           <h2 style={{color:"blue"}}>Movie Name: {Title}</h2>
           <p>
-            Actors :{Actors[0]} ,{Actors[1]} ,{Actors[2]} and {Actors[3]}
+            Actors :{Actors[0]} {Actors[1]} {Actors[2]}  {Actors[3]}
+
+            {/* Actors: {Actors.map((actor,i)=> (actor))} */}
           </p>
           <p>Rating : {Rating}</p>
           <p> Released: {Released}</p>

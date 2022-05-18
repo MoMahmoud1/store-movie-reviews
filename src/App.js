@@ -28,7 +28,10 @@ function App() {
          }}
         />
       } />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/reviews" element={<Reviews addmovies ={(newmoveies => {
+          console.log("movie=>",newmoveies);
+          setMovies([...movies,newmoveies])
+        })} />} />
         </Routes>
   
     </div>
