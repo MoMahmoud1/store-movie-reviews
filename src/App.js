@@ -33,7 +33,7 @@ function App() {
           setMovies([...movies,newmovies])
         })} />} />
         </Routes>
-  
+          <div></div>
     </div>
 
 
